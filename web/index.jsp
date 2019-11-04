@@ -9,8 +9,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<% ArrayList<Author> list = null;
-    list = (ArrayList<Author>) request.getAttribute("authorList");%>
+<%--<% ArrayList<Author> list = null;--%>
+<%--    list = (ArrayList<Author>) request.getAttribute("authorList");%>--%>
 <html>
 <head>
     <title>$Title$</title>
@@ -56,7 +56,6 @@
 </style>
 <body>
 <form method="get" action="${pageContext.request.contextPath}/getList">
-    <input type="submit" value="ShowList" style="margin-bottom: 30px">
     <table>
         <tr>
             <td>Author Name</td>
@@ -66,9 +65,14 @@
             <tr class="notfirstTr">
                 <td>${Author.getName()}</td>
                 <td>${Author.getDob()}</td>
+                <td><a href="${pageContext.request.contextPath}/getList?idDelete=${Author.getId()}">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
+    <p><input type="submit" value="ShowList" style="margin-bottom: 30px"></p>
+    <p><a href="${pageContext.request.contextPath}/AddAuthorForm.jsp">
+        <button type="button"> Add</button>
+    </a></p>
 </form>
 </body>
 </html>
