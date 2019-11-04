@@ -13,66 +13,42 @@
 <%--    list = (ArrayList<Author>) request.getAttribute("authorList");%>--%>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>Author List</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="myStyle.css">
 </head>
-<style>
 
-    table {
-        margin: auto;
-        border: 2px solid black;
-    }
-
-    .notfirstTr:hover {
-        color: red;
-        background-color: darkgray;
-        cursor: pointer;
-    }
-
-    .notfirstTr {
-        border: 2px double black;
-        margin: auto;
-        padding: 15px;
-    }
-
-    tr {
-        border: 2px solid black;
-        margin: auto;
-        padding: 15px;
-    }
-
-    td {
-        margin: auto;
-        border: 2px solid black;
-        text-align: center;
-        padding: 15px;
-        font-weight: bolder;
-    }
-
-</style>
 <body>
 <form method="get" action="${pageContext.request.contextPath}/getList">
-    <table>
-        <tr>
-            <td>Author Name</td>
-            <td>Date Of Birth</td>
-        </tr>
-        <c:forEach var="Author" items="${authorList}">
-            <tr class="notfirstTr">
-                <td>${Author.getName()}</td>
-                <td>${Author.getDob()}</td>
-                <td><a href="${pageContext.request.contextPath}/getList?idDelete=${Author.getId()}">Delete</a></td>
+    <fieldset>
+        <legend style="text-shadow: 2px 2px 6px black">Author List</legend>
+        <table>
+            <tr>
+                <td>ID</td>
+                <td>Author Name</td>
+                <td>Date Of Birth</td>
             </tr>
-        </c:forEach>
-    </table>
-    <p><input type="submit" value="ShowList" style="margin-bottom: 30px"></p>
-    <p><a href="${pageContext.request.contextPath}/AddAuthorForm.jsp">
-        <button type="button"> Add</button>
-    </a></p>
+            <c:forEach var="Author" items="${authorList}">
+                <tr class="notfirstTr">
+                    <td>${Author.getId()}</td>
+                    <td>${Author.getName()}</td>
+                    <td>${Author.getDob()}</td>
+                    <td><a href="${pageContext.request.contextPath}/getList?idDelete=${Author.getId()}">Delete</a></td>
+                    <td><a href="${pageContext.request.contextPath}/getList?idEdit=${Author.getId()}">Edit Info</a></td>
+                </tr>
+            </c:forEach>
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <p style="margin: auto"><input type="submit" value="ShowList" style="margin-bottom: 30px"> <a href="${pageContext.request.contextPath}/AddAuthorForm.jsp">
+            <button type="button"> Add</button>
+        </a></p>
+    </fieldset>
 </form>
 </body>
 </html>

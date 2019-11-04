@@ -5,6 +5,6 @@
          version="4.0">
     <servlet>
         <servlet-name>CustomerServlet</servlet-name>
-        <servlet-class>Controller.CustomerServlet</servlet-class>
+        <servlet-class>Controller.AuthorServlet</servlet-class>
     </servlet>
 </web-app>
