@@ -38,7 +38,7 @@ public class AuthorServlet extends javax.servlet.http.HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }else if (request.getParameter("edit") != null) {
+        } else if (request.getParameter("edit") != null) {
             try {
                 int id = Integer.parseInt(request.getParameter("authorId"));
                 String name = request.getParameter("name");
@@ -46,7 +46,7 @@ public class AuthorServlet extends javax.servlet.http.HttpServlet {
                 PreparedStatement ps = conn.prepareStatement("update Author set name=?,dateOfBirth=? where id=?");
                 ps.setString(1, name);
                 ps.setString(2, dob);
-                ps.setInt(3,id);
+                ps.setInt(3, id);
                 ps.executeUpdate();
                 ps.close();
                 conn.close();

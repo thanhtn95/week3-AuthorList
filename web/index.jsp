@@ -37,7 +37,7 @@
                     <td>${Author.getId()}</td>
                     <td>${Author.getName()}</td>
                     <td>${Author.getDob()}</td>
-                    <td><a href="${pageContext.request.contextPath}/getList?idDelete=${Author.getId()}">Delete</a></td>
+                    <td><a href="${pageContext.request.contextPath}/getList?idDelete=${Author.getId()}" onclick="return confirm('Are you sure?')">Delete</a></td>
                     <td><a href="${pageContext.request.contextPath}/getList?idEdit=${Author.getId()}">Edit Info</a></td>
                 </tr>
             </c:forEach>

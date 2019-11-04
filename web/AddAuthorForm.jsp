@@ -23,8 +23,10 @@
         <p>Name: <input type="text" name="name" placeholder="Author Name"></p>
         <p>Date Of Birth: <input type="date" name="dob"></p>
     </fieldset>
-    <p><input type="submit" value="Add Author" name="add"></p>
-    <p><a href="${pageContext.request.contextPath}/getList?"><button type="button">Back</button></a></p>
+    <p><input type="submit" value="Add Author" name="add" onclick="return confirm('Are you sure?')"></p>
+    <p><a href="${pageContext.request.contextPath}/getList?">
+        <button type="button">Back</button>
+    </a></p>
 </form>
 </body>
 </html>

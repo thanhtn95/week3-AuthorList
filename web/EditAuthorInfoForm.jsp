@@ -21,11 +21,12 @@
 <form method="post" action="${pageContext.request.contextPath}/getList">
     <fieldset style="width: fit-content; height: fit-content">
         <legend><h3>Author Info</h3></legend>
-        <p>Id: <input  style="width: 30px" type="text" name="authorId" value="<%=selectedAuthor.getId()%>" readonly="true"></p>
+        <p>Id: <input style="width: 30px" type="text" name="authorId" value="<%=selectedAuthor.getId()%>"
+                      readonly="true"></p>
         <p>Name: <input type="text" name="name" value="<%=selectedAuthor.getName()%>"></p>
         <p>Date Of Birth: <input type="date" name="dob" value="<%=selectedAuthor.getDob()%>"></p>
     </fieldset>
-    <p><input type="submit" value="Edit Info" name="edit"></p>
+    <p><input type="submit" value="Edit Info" name="edit" onclick="return confirm('Are you sure?')" ></p>
     <p><a href="${pageContext.request.contextPath}/getList?">
         <button type="button">Back</button>
     </a></p>
